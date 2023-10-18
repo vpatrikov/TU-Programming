@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="calc">
+        <label for="inp1">Enter first number:</label><br>
+        <input type="text" id="inp1">
+        <br>
+        <label for="inp2">Enter second number:</label><br>
+        <input type="text" id="inp2">
+        <br>
+        <label for="inp3">Enter third number:</label><br>
+        <input type="text" id="inp3">
+    </form>
+
+    <form name="choice">
+        <input title="Subtract" type="radio" name="operation" id="sub" value="-">
+        <input title="Add" type="radio" name="operation" id="sum" value="+">
+        <input title="Devide" type="radio" name="operation" id="dev" value="/">
+        <input title="Multiply" type="radio" name="operation" id="mul" value="*">
+    </form>
+    
+    <button onclick="calculations();">Calculate</button>
+
+    <script>
+        function calculations() {
+            var a, b, c, z = 0;
+
+            a = parseInt(document.getElementById("inp1").value);
+            b = parseInt(document.getElementById("inp2").value);
+            c = parseInt(document.getElementById("inp3").value);
+
+            var sub = document.getElementById("sub");
+            var sum = document.getElementById("sum");
+            var dev = document.getElementById("dev");
+            var mul = document.getElementById("mul");
+
+            if (sub.checked) {
+                z = a - b - c;
+                alert(z);
+            }
+            else if (sum.checked) {
+                z = a + b + c;
+                alert(z);
+            }
+            else if (dev.checked) {
+                parseFloat(z = a / b / c);
+                alert(z);
+            }
+            else if (mul.checked) {
+                parseFloat(z = a * b * c);
+                alert(z);
+            }
+        }
+    </script>
+</body>
+</html>
