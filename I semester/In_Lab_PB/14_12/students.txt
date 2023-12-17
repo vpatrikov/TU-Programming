@@ -1,0 +1,3 @@
+George, 4.5, 13
+Vladimir, 3.5, 5
+Pesho, 6.0, 21

@@ -60,7 +60,6 @@ def zad_2():
 def zad_5():
     import random
 
-    # 1. Въвеждане на размера на кортежа
     while True:
         n = input("vavedete razmer na korteja: ")
 
@@ -70,23 +69,19 @@ def zad_5():
         else:
             print("\nnevaliden razmer\n")
 
-    # 2. Генериране на кортеж със случайни букви
     letterTuple = tuple([random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ') for _ in range(n)])
     print("\nkortejat sas slu4aini bukvi e:")
     print(letterTuple)
 
-    # 3. Преброяване на повторенията на всяка буква в кортежа
     letterSet = set(letterTuple)
     countList = [letterTuple.count(letter) for letter in letterSet]
 
-    # 4. Създаване на списък с кортежи
     tupleList = list(zip(list(letterSet), countList))
     print("spisak ot elementi na mnojestvoto e:")
     print(list(letterSet))
     print("mnojestvoto se sastoi ot {} elementa".format(len(letterSet)))
     print(countList)
 
-    # 5. Създаване на речник
     letterDict = dict(tupleList)
     print("spisak ot korteji za vsiaka bukva ot mnojestvoto:")
     print(tupleList)
