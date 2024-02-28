@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 void simple_number_comparison()
 {
     int a, b;
@@ -41,13 +41,14 @@ void switch_test_becuz_why_not()
     }
 }
 
-int main(void)
+void dynamic_array()
 {
     int size;
     printf("Enter the size of your array:\n");
     scanf("%d", &size);
-    
-    int array[99]; 
+
+    int *array;
+    array = (int *)malloc(size * sizeof(int));
     for (int i = 0; i < size; i++)
     {
         printf("Element %d of the array\n", i);
@@ -56,8 +57,9 @@ int main(void)
 
     for (int i = 0; i < size; i++)
     {
-        printf("%d", array[i]);
+        printf("%d ", array[i]);
     }
-    
-    
+}
+int main(void)
+{
 }
