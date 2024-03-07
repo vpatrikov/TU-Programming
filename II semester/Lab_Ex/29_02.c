@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define PI 3.14
+
 void zad_1()
 {
     printf("Hello World\t");
@@ -30,13 +32,14 @@ void zad_3()
 void zad_4()
 {
     int d;
-    float p, pi = 3.14;
+    float p;
     printf("Enter d:\n");
     scanf("%d", &d);
-    p = 2*pi*d/2;
+    p = 2*PI*d/2;
     printf("The perimeter of the circle is %.2f", p);
 }
 int main()
 {
+    zad_4();
     return 0;
 }
