@@ -137,17 +137,34 @@ void zad_7()
     scanf("%d", &b);
 
     int result = 0;
-
-    for (int i = a + 1; i < b; i++)
+    if (b > a)
     {
-        result += i;
-        if (i == b - 1)
+        for (int i = a + 1; i < b; i++)
         {
-            printf("%d = ", i);
+            result += i;
+            if (i == b - 1)
+            {
+                printf("%d = ", i);
+            }
+            else
+            {
+                printf("%d + ", i);
+            }
         }
-        else
+    }
+    else
+    {
+        for (int i = b + 1; i < a; i++)
         {
-            printf("%d + ", i);
+            result += i;
+            if (i == a - 1)
+            {
+                printf("%d = ", i);
+            }
+            else
+            {
+                printf("%d + ", i);
+            }
         }
     }
 
@@ -207,7 +224,6 @@ void zad_9()
         {
             count++;
         }
-
     }
 }
 
@@ -237,7 +253,8 @@ void zad_11()
 
     printf("Values for f(x) = x*x - 4 in [%lf, %lf] with step 0.01:\n", start, end);
 
-    for (double x = start; x <= end; x += 0.01) {
+    for (double x = start; x <= end; x += 0.01)
+    {
         double result = x * x - 4;
         printf("f(%lf) = %lf\n", x, result);
     }
@@ -245,6 +262,6 @@ void zad_11()
 
 int main()
 {
-    zad_11();
+    zad_7();
     return 0;
 }
