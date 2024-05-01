@@ -49,7 +49,14 @@ void findAndPrintPatients(Patient patients[], int size, double price)
 
 void printPatientsFromBinaryFile(double price)
 {
-    FILE *file = fopen("AnimalsBin.bin", "rb");
+    FILE *file;
+
+    if (file = fopen("AnimalsBin.bin", "rb") == NULL)
+    {
+        printf("Can't open file.\n");
+        exit(1);
+    }
+    
 
     Patient p;
     while (fread(&p, sizeof(Patient), 1, file))
@@ -68,7 +75,14 @@ void printPatientsFromBinaryFile(double price)
 
 int main()
 {
-    FILE* fptr = fopen("test.txt", "a");
+    FILE* fptr;
+
+    if (fptr = fopen("test.txt", "a") == NULL)
+    {
+        printf("Can't open file.\n");
+        exit(2);
+    }
+
     int n;
     printf("Enter size of array: ");
 
