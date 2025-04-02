@@ -1,0 +1,73 @@
+DROP DATABASE IF EXISTS  `2024_TU_Lab1`;
+CREATE DATABASE `2024_TU_Lab1`;
+USE `2024_TU_Lab1`;
+ 
+CREATE TABLE publisher (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  country VARCHAR(20) NOT NULL
+);
+ 
+CREATE TABLE book (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  ISBN CHAR(13) NOT NULL UNIQUE,
+  title VARCHAR(100) NOT NULL,
+  price DECIMAL(10,0) NOT NULL DEFAULT '0',
+  category VARCHAR(20) NOT NULL,
+  publisher_id INT NOT NULL
+);
+ 
+CREATE TABLE reader (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  email VARCHAR(320) NOT NULL UNIQUE,
+  first_name VARCHAR(20) NOT NULL,
+  last_name VARCHAR(20) NOT NULL,
+  address VARCHAR(100) NOT NULL,
+  sex ENUM('male','female','other') NOT NULL,
+  phone_no VARCHAR(100)
+);
+ 
+CREATE TABLE staff (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+ 
+CREATE TABLE account (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(320) UNIQUE,
+  password VARCHAR(100) NOT NULL
+);
+ 
+ 
+CREATE TABLE book_reader (
+  book_id INT NOT NULL,
+  reader_id INT NOT NULL,
+  date_taken DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  date_returned DATETIME,
+  PRIMARY KEY (book_id,reader_id),
+  CONSTRAINT FOREIGN KEY (book_id) REFERENCES book(id),
+  CONSTRAINT FOREIGN KEY (reader_id) REFERENCES reader(id)
+);
+ 
+ALTER TABLE book
+ADD CONSTRAINT FOREIGN KEY(publisher_id) REFERENCES publisher(id);
+ 
+ALTER TABLE reader
+ADD account_id INT UNIQUE;
+ALTER TABLE reader
+ADD CONSTRAINT FOREIGN KEY(account_id) REFERENCES account(id);
+ 
+ALTER TABLE staff
+ADD account_id INT UNIQUE;
+ALTER TABLE staff
+ADD CONSTRAINT FOREIGN KEY(account_id) REFERENCES account(id);
+ 
+ALTER TABLE reader
+ADD staff_id INT;
+ALTER TABLE reader
+ADD CONSTRAINT FOREIGN KEY(staff_id) REFERENCES staff(id);
+ 
+ALTER TABLE book
+ADD maintained_by INT;
+ALTER TABLE book
+ADD CONSTRAINT FOREIGN KEY(maintained_by) REFERENCES staff(id);
