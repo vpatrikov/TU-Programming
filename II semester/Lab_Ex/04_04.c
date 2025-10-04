@@ -4,7 +4,7 @@
 
 int n_entered = 0;
 
-void get_input(int *n, double arr[][*n])
+void getInput(int *n, double arr[][*n])
 {
     if (n_entered == 0)
     {
@@ -71,10 +71,10 @@ void print_diag_elem(int n, double arr[n][n], char choice[])
 void zad_1()
 {
     int n;
-    get_input(&n, NULL);
+    getInput(&n, NULL);
     
     double arr[n][n];
-    get_input(&n, arr);
+    getInput(&n, arr);
 
     printf("Main Diagonal: ");
     print_diag_elem(n, arr, "main");
@@ -92,10 +92,10 @@ void zad_1()
 int zad_2()
 {
     int n;
-    get_input(&n, NULL);
+    getInput(&n, NULL);
 
     double arr[n][n];
-    get_input(&n, arr);
+    getInput(&n, arr);
 
     double sum = 0;
 
